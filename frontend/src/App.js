@@ -10,7 +10,7 @@ import SearchResultsPage from './components/SearchResultsPage';
 import AdminPage from './components/AdminPage';
 import LoginPage from './components/LoginPage';
 import './App.css';
-
+import Chatbot from './components/Chatbot'; 
 // This is the universal API URL that will be imported by other components.
 // It automatically switches between your local server and your live server.
 export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -60,6 +60,8 @@ function App() {
           <Route path="/admin" element={<AdminPage posts={posts} onPostChange={fetchPosts} authToken={authToken} />} />
         </Routes>
         <Footer />
+        <Chatbot /> {/* <-- 2. Ise Footer ke upar ya niche jodein */}
+
       </div>
     </Router>
   );

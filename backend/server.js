@@ -28,6 +28,8 @@ connectDB();
 // Use Routes
 app.use('/api/posts', require('./routes/posts'));
 app.use('/api/auth', require('./routes/auth')); // <-- ADD THIS LINE
+app.use('/api/chat', require('./routes/chat')); // <-- YAH LINE JODEIN
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend server started on port ${PORT}`));
