@@ -514,7 +514,7 @@ body {
     color: white;      /* Shuruaati rang */
     display: flex;     /* Aksharon ko ek line mein rakhne ke liye */
     justify-content: center;
-    gap: 100px; /* ACTION: Aksharon ke beech gap badhaya gaya hai */
+    gap: 10px; /* ACTION: Aksharon ke beech gap badhaya gaya hai */
 }
 
 /* Har ek akshar ka initial state */
