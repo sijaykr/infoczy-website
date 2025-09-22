@@ -494,3 +494,49 @@ body {
     border-radius: 0 4px 4px 0;
     font-weight: bold;
 }
+
+
+/* Keyframes for the left-to-right wipe animation */
+@keyframes gradient-wipe {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+/* --- FINAL Attractive Animated Header Title Style --- */
+
+.site-title a {
+    font-size: 3.5rem; /* Bada size */
+    font-weight: 600;  /* Extra bold */
+    
+    color: white;      /* Shuruaati rang */
+    display: flex;     /* Aksharon ko ek line mein rakhne ke liye */
+    justify-content: center;
+    gap: 100px; /* ACTION: Aksharon ke beech gap badhaya gaya hai */
+}
+
+/* Har ek akshar ka initial state */
+.animated-letter {
+    display: inline-block;
+    opacity: 0; /* Shuruaat mein akshar dikhai nahi denge */
+    transform: translateY(-20px); /* Thoda upar se aayenge */
+    
+    /* Animation ka naam, samay, aur loop set kiya gaya hai */
+    animation: letter-reveal 2.5s infinite;
+}
+
+/* Akshar-dar-akshar reveal hone ka animation */
+@keyframes letter-reveal {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(-20px);
+        color: #fff;
+    }
+    15%, 85% {
+        opacity: 1;
+        transform: translateY(0);
+        color: #f8c018; /* Beech mein rang badlega */
+    }
+}

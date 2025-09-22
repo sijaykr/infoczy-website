@@ -2,13 +2,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'; // <-- 1. IMPORT IT
-
+// "infoczy" shabd ko alag-alag aksharon mein toda gaya hai
+    const titleLetters = "infoczy".split('');
 const Header = () => {
   return (
     <header className="app-header">
-      <div className="top-bar">
-        <h1><Link to="/" style={{ color: 'white', textDecoration: 'none' }}>infoczy</Link></h1>
-      </div>
+     <div className="top-bar">
+    <h1 className="site-title">
+<Link to="/" style={{ textDecoration: 'none' }}>
+                        {/* Har akshar ke liye ek alag span banaya ja raha hai */}
+                        {titleLetters.map((letter, index) => (
+                            <span 
+                                key={index} 
+                                className="animated-letter"
+                                // Har akshar ke animation mein thoda delay dala gaya hai
+                                style={{ animationDelay: `${index * 0.1}s` }} 
+                            >
+                                {letter}
+                            </span>
+                        ))}
+                    </Link>    </h1>
+</div>
       <nav className="main-nav">
         <ul>
           <li><Link to="/">Home</Link></li>
