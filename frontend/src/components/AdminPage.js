@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import { Navigate } from 'react-router-dom';
 import { API_BASE_URL } from '../App';
 
+// ReactQuill has been removed completely to solve the HTML sanitization issue.
+
 const AdminPage = ({ posts, onPostChange, authToken }) => {
-    // Hooks must be called at the top level, before any conditionals.
+    // Hooks must be at the top level
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('New Update');
-    const [content, setContent] = useState('');
+    const [content, setContent] = useState(''); // This will now hold raw HTML
     const [editingId, setEditingId] = useState(null);
 
-    // Now, we can safely check for the token and return early.
     if (!authToken) {
         return <Navigate to="/login" />;
     }
@@ -27,6 +26,7 @@ const AdminPage = ({ posts, onPostChange, authToken }) => {
                 await axios.post(`${API_BASE_URL}/api/posts`, postData);
             }
             onPostChange();
+            // Reset all fields
             setTitle('');
             setCategory('New Update');
             setContent('');
@@ -40,7 +40,7 @@ const AdminPage = ({ posts, onPostChange, authToken }) => {
         setEditingId(post._id);
         setTitle(post.title);
         setCategory(post.category);
-        setContent(post.content);
+        setContent(post.content); // Load the raw HTML directly into the textarea
     };
 
     const handleDelete = async (id) => {
@@ -58,11 +58,12 @@ const AdminPage = ({ posts, onPostChange, authToken }) => {
         container: { padding: '2rem', maxWidth: '900px', margin: 'auto' },
         form: { display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' },
         input: { padding: '10px', fontSize: '1rem' },
-        button: { padding: '10px 15px', fontSize: '1rem', cursor: 'pointer', backgroundColor: '#004080', color: 'white', border: 'none' },
+        button: { padding: '10px 15px', fontSize: '1rem', cursor: 'pointer', backgroundColor: '#004080', color: 'white', border: 'none', borderRadius: '4px' },
         list: { listStyle: 'none', padding: 0 },
         listItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', borderBottom: '1px solid #ccc' },
         postTitle: { margin: 0 },
-        actions: { display: 'flex', gap: '10px' }
+        actions: { display: 'flex', gap: '10px' },
+        htmlTextArea: { minHeight: '400px', fontFamily: 'monospace', fontSize: '14px', padding: '10px', width: '100%', boxSizing: 'border-box' },
     };
 
     return (
@@ -82,8 +83,17 @@ const AdminPage = ({ posts, onPostChange, authToken }) => {
                     <option value="Career">Career</option>
                     <option value="Admission Update">Admission Update</option>
                 </select>
-                <ReactQuill theme="snow" value={content} onChange={setContent} style={{ height: '250px', marginBottom: '50px' }}/>
-                <button type="submit" style={styles.button}>{editingId ? 'Update Post' : 'Add Post'}</button>
+
+                <label htmlFor="content-editor">Post Content (Paste Universal HTML Template Here):</label>
+                <textarea 
+                    id="content-editor"
+                    style={styles.htmlTextArea} 
+                    placeholder="Yahan apna universal HTML template paste karein..."
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
+
+                <button type="submit" style={{...styles.button, marginTop: '1rem'}}>{editingId ? 'Update Post' : 'Add Post'}</button>
                 {editingId && <button type="button" onClick={() => { setEditingId(null); setTitle(''); setCategory('New Update'); setContent(''); }} style={{...styles.button, backgroundColor: '#6c757d'}}>Cancel Edit</button>}
             </form>
 
@@ -104,4 +114,5 @@ const AdminPage = ({ posts, onPostChange, authToken }) => {
 };
 
 export default AdminPage;
+
 
