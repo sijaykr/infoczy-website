@@ -46,7 +46,7 @@ const Home = ({ posts }) => {
         <PostSection title="Latest Jobs" posts={posts} category="Latest Jobs" id="latest-jobs" />
         <PostSection title="Scholarship" posts={posts} category="Scholarship" id="scholarship" />
         <PostSection title="Syllabus/ Answer Key" posts={posts} category="Syllabus" id="syllabus" />
-        <PostSection title="Career" posts={posts} category="Career" id="career" />
+        <PostSection title="Career" posts={posts} category="Career" id="career" />                              
         <PostSection title="Admission Update" posts={posts} category="Admission Update" id="admission-update" />
       </section>
 

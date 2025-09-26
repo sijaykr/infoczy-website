@@ -6,7 +6,7 @@
   --background-color: #f0f2f5;
   --text-color: #333;
   --light-text-color: #fff;
-  --border-color: #ddd;
+  --border-color: #0d47a1;
 }
 
 body {
@@ -95,7 +95,7 @@ body {
   gap: 20px;
 }
 @media (min-width: 992px) { .content-grid { grid-template-columns: repeat(4, 1fr); } }
-.post-section { background-color: #fff; border: 1px solid var(--border-color); }
+.post-section { background-color: #fff; border: 2px solid var(--border-color); }
 .section-title {
   background-color: var(--primary-color);
   color: var(--light-text-color);
@@ -104,9 +104,9 @@ body {
   font-size: 1.1rem;
 }
 .post-list { list-style: none; padding: 0; margin: 0; }
-.post-item { padding: 10px 15px; border-bottom: 1px solid #f0f0f0; }
+.post-item { padding: 10px 15px; border-bottom: 2px solid #050000; }
 .post-item:last-child { border-bottom: none; }
-.post-item a { text-decoration: none; color: #333; font-size: 0.9rem; transition: color 0.2s; }
+.post-item a { text-decoration: none; font-weight: bold;color: #1f1e1e; font-size: 1.0rem; transition: color 0.2s; }
 .post-item a:hover { color: var(--accent-color); }
 .view-more-btn {
     display: block;
