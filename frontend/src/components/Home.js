@@ -14,25 +14,25 @@ const Home = ({ posts }) => {
 
       <section className="icon-boxes">
         <div className="icon-box">
-            <a href="#govt-scheme">
+            <a href="/category/Govt%20Scheme">
                 <i className="fas fa-landmark"></i>
                 <h3>Govt Scheme</h3>
             </a>
         </div>
         <div className="icon-box">
-            <a href="#admit-card">
+            <a href="/category/Admit%20Card">
                 <i className="fas fa-address-card"></i>
                 <h3>Admit Card</h3>
             </a>
         </div>
         <div className="icon-box">
-            <a href="#scholarship">
+            <a href="/category/Scholarship">
                 <i className="fas fa-graduation-cap"></i>
                 <h3>Scholarship</h3>
             </a>
         </div>
         <div className="icon-box">
-            <a href="#career">
+            <a href="/category/Career">
                 <i className="fas fa-briefcase"></i>
                 <h3>Career</h3>
             </a>

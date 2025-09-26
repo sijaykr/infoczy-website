@@ -540,3 +540,32 @@ body {
         color: #f8c018; /* Beech mein rang badlega */
     }
 }
+/* === Animated Glowing Icon Effect === */
+
+/* Keyframes define the animation */
+@keyframes whatsapp-glow-animation {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(37, 211, 102, 0.7), 0 0 10px rgba(37, 211, 102, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(37, 211, 102, 1), 0 0 30px rgba(37, 211, 102, 1);
+    }
+}
+
+@keyframes telegram-glow-animation {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0, 136, 204, 0.7), 0 0 10px rgba(0, 136, 204, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 136, 204, 1), 0 0 30px rgba(0, 136, 204, 1);
+    }
+}
+
+/* Applying the animation to your existing social icon classes */
+.social-icon.whatsapp {
+    animation: whatsapp-glow-animation 2.5s ease-in-out infinite;
+}
+
+.social-icon.telegram {
+    animation: telegram-glow-animation 2.5s ease-in-out infinite;
+}
